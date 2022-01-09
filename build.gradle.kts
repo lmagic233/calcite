@@ -51,7 +51,8 @@ plugins {
 
 repositories {
     // At least for RAT
-    mavenCentral()
+    // mavenCentral()
+    mavenLocal()
 }
 
 fun reportsForHumans() = !(System.getenv()["CI"]?.toBoolean() ?: false)
@@ -97,7 +98,7 @@ tasks.validateBeforeBuildingReleaseArtifacts {
 
 val String.v: String get() = rootProject.extra["$this.version"] as String
 
-val buildVersion = "calcite".v + releaseParams.snapshotSuffix
+val buildVersion = "calcite".v // + releaseParams.snapshotSuffix
 
 println("Building Apache Calcite $buildVersion")
 

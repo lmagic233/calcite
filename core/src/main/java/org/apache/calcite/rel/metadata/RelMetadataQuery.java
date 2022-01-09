@@ -356,7 +356,8 @@ public class RelMetadataQuery extends RelMetadataQueryBase {
       return null;
     }
     final RelColumnOrigin origin = Iterables.getOnlyElement(origins);
-    return origin.isDerived() ? null : origin;
+    // return origin.isDerived() ? null : origin;
+    return origin;
   }
 
   /**

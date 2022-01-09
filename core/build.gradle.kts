@@ -23,6 +23,7 @@ plugins {
     id("com.github.vlsi.ide")
     calcite.fmpp
     calcite.javacc
+    `maven-publish`
 }
 
 val integrationTestConfig: (Configuration.() -> Unit) = {
@@ -89,6 +90,10 @@ publishing {
         named<MavenPublication>(project.name) {
             artifact(tasks.testJar.get())
         }
+    }
+
+    repositories {
+        mavenLocal()
     }
 }
 
